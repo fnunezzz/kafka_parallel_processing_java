@@ -1,0 +1,43 @@
+spring:
+  profiles: dev
+  debug: true
+  application:
+    name: kafka-parallel-processing-java
+
+server:
+  port: 9191
+  debug: true
+  include-stacktrace: never
+  compression:
+    enabled: true
+    mime-types: application/json
+
+logging:
+  file: ../logs/kafka-parallel-processing-java-dev.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: DEBUG
+    org.springframework.web: DEBUG
+
+datasource:
+  postgres:
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+    password: postgres
+    jdbcUrl: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
+    username: postgres
+    validationQuery: select current_timestamp
+    validationInterval: 30000
+    maxActive: 5
+    maxIdle: 5
+    minIdle: 1
+    initialSize: 1
+    maxWait: 30000
+    testOnBorrow: true
+    testOnReturn: false
+    testWhileIdle: true
+    testOnConnect: false
+    removeAbandoned: true
+    removeAbandonedTimeout: 60

@@ -1,0 +1,22 @@
+spring:
+  profiles: test
+  debug: true
+  application:
+    name: kafka-parallel-processing-java
+    
+server:
+  port: 9191
+  debug: true
+  include-stacktrace: never
+  compression:
+    enabled: true
+    mime-types: application/json
+
+logging:
+  file: ../logs/kafka-parallel-processing-java-dev.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: ERROR
+    org.springframework.web: ERROR
