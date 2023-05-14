@@ -14,7 +14,7 @@ public class Book {
     private String pages;
     private String filesize;
     private String series;
-    private String periodical;
+    private Boolean periodical;
     private String description;
     private String cover;
    
@@ -73,7 +73,7 @@ public class Book {
      return series;
     }
    
-    public String getPeriodical() {
+    public Boolean getPeriodical() {
      return periodical;
     }
    
@@ -139,7 +139,9 @@ public class Book {
      this.series = series;
     }
    
-    public void setPeriodical(String periodical) {
+    public void setPeriodical(Boolean periodical) {
+     if (periodical == null) periodical = false;
+     
      this.periodical = periodical;
     }
    

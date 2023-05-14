@@ -3,7 +3,18 @@ spring:
   debug: true
   application:
     name: kafka-parallel-processing-java
-
+  kafka:
+    bootstrap-servers: "localhost:9092,localhost:9093,localhost:9094"
+    acksConfig: all
+    retriesConfig: 10
+  # schemaRegistryUrl: ${KAFKA_REGISTRY}
+    producer:
+      keySerializer: "org.apache.kafka.common.serialization.StringSerializer"
+      valueSerializer: "io.confluent.kafka.serializers.KafkaAvroSerializer"
+      properties:
+        schema:
+          registry:
+            url: http://localhost:8081
 server:
   port: 9191
   debug: true
@@ -18,8 +29,8 @@ logging:
     console: "%d %-5level %logger : %msg%n"
     file: "%d %-5level [%thread] %logger : %msg%n"
   level:
-    ROOT: DEBUG
-    org.springframework.web: DEBUG
+    ROOT: INFO
+    org.springframework.web: INFO
 
 datasource:
   postgres:
