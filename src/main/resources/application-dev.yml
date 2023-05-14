@@ -4,7 +4,7 @@ spring:
   application:
     name: kafka-parallel-processing-java
   kafka:
-    bootstrap-servers: "localhost:9092,localhost:9093,localhost:9094"
+    bootstrap-servers: "localhost:9092"
     acksConfig: all
     retriesConfig: 10
   # schemaRegistryUrl: ${KAFKA_REGISTRY}
@@ -15,6 +15,19 @@ spring:
         schema:
           registry:
             url: http://localhost:8081
+    consumer:
+      group-id: "kafka-parallel-processing-java"
+      keyDeserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+      valueDeserializer: "io.confluent.kafka.serializers.KafkaAvroDeserializer"
+      autoOffsetReset: "earliest"
+      properties:
+        schema:
+          registry:
+            url: http://localhost:8081
+        specific:
+          avro:
+            reader: "true"
+
 server:
   port: 9191
   debug: true

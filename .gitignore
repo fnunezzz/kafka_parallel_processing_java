@@ -34,3 +34,4 @@ build/
 
 ### DOCKER ###
 .postgres
+.kafka
