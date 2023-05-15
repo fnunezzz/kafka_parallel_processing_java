@@ -1,9 +1,8 @@
-package com.github.fnunezzz.kafkaparallelprocessingjava.classes;
+package com.github.fnunezzz.kafkaparallelprocessingjava.dto;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Book {
+public class BookDto {
     private String title;
     private String isbn;
     private int pageCount;
@@ -12,6 +11,7 @@ public class Book {
     private String shortDescription;
     private String longDescription;
     private String status;
+    ArrayList < String > authors = new ArrayList < String > ();
     ArrayList < String > categories = new ArrayList < String > ();
    
    
@@ -36,6 +36,14 @@ public class Book {
     public String getCover() {
      return cover;
     }
+   
+    public ArrayList<String> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(ArrayList<String> authors) {
+        this.authors = authors;
+    }
 
     public ArrayList<String> getCategories() {
         return categories;
@@ -43,19 +51,6 @@ public class Book {
 
     public void setCategories(ArrayList<String> categories) {
         this.categories = categories;
-    }
-
-    public void setCategories(List<CharSequence> categories) {
-        if (categories == null) {
-            this.categories = new ArrayList < String > ();
-            return;
-        }
-        ArrayList < String > c = new ArrayList < String > ();
-        for (CharSequence cs : categories) {
-            if (cs == null) continue;
-            c.add(cs.toString());
-        }
-        this.categories = c;
     }
 
     public String getShortDescription() {

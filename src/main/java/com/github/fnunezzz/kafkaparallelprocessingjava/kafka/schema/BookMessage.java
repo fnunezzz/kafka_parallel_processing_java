@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class BookMessage extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -9085022724477073289L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BookMessage\",\"namespace\":\"com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema\",\"fields\":[{\"name\":\"title\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"author\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"authorFirstName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"authorLastName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"authorMiddleName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"categories\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"volume\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"year\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"edition\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"language\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"pages\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"filesize\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"series\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"periodical\",\"type\":[\"boolean\",\"null\"],\"default\":false},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"cover\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
+  private static final long serialVersionUID = -5201456961847153098L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BookMessage\",\"namespace\":\"com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema\",\"fields\":[{\"name\":\"authors\",\"type\":[\"null\",{\"type\":\"array\",\"items\":[\"null\",\"string\"]}],\"default\":null},{\"name\":\"categories\",\"type\":[\"null\",{\"type\":\"array\",\"items\":[\"null\",\"string\"]}],\"default\":null},{\"name\":\"cover\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"isbn\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"longDescription\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"pageCount\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"publishedDate\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"shortDescription\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"status\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"title\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,22 +71,16 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence title;
-   private java.lang.CharSequence author;
-   private java.lang.CharSequence authorFirstName;
-   private java.lang.CharSequence authorLastName;
-   private java.lang.CharSequence authorMiddleName;
-   private java.lang.CharSequence categories;
-   private java.lang.CharSequence volume;
-   private java.lang.CharSequence year;
-   private java.lang.CharSequence edition;
-   private java.lang.CharSequence language;
-   private java.lang.CharSequence pages;
-   private java.lang.CharSequence filesize;
-   private java.lang.CharSequence series;
-   private java.lang.Boolean periodical;
-   private java.lang.CharSequence description;
+   private java.util.List<java.lang.CharSequence> authors;
+   private java.util.List<java.lang.CharSequence> categories;
    private java.lang.CharSequence cover;
+   private java.lang.CharSequence isbn;
+   private java.lang.CharSequence longDescription;
+   private java.lang.Integer pageCount;
+   private java.lang.CharSequence publishedDate;
+   private java.lang.CharSequence shortDescription;
+   private java.lang.CharSequence status;
+   private java.lang.CharSequence title;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -97,40 +91,28 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * All-args constructor.
-   * @param title The new value for title
-   * @param author The new value for author
-   * @param authorFirstName The new value for authorFirstName
-   * @param authorLastName The new value for authorLastName
-   * @param authorMiddleName The new value for authorMiddleName
+   * @param authors The new value for authors
    * @param categories The new value for categories
-   * @param volume The new value for volume
-   * @param year The new value for year
-   * @param edition The new value for edition
-   * @param language The new value for language
-   * @param pages The new value for pages
-   * @param filesize The new value for filesize
-   * @param series The new value for series
-   * @param periodical The new value for periodical
-   * @param description The new value for description
    * @param cover The new value for cover
+   * @param isbn The new value for isbn
+   * @param longDescription The new value for longDescription
+   * @param pageCount The new value for pageCount
+   * @param publishedDate The new value for publishedDate
+   * @param shortDescription The new value for shortDescription
+   * @param status The new value for status
+   * @param title The new value for title
    */
-  public BookMessage(java.lang.CharSequence title, java.lang.CharSequence author, java.lang.CharSequence authorFirstName, java.lang.CharSequence authorLastName, java.lang.CharSequence authorMiddleName, java.lang.CharSequence categories, java.lang.CharSequence volume, java.lang.CharSequence year, java.lang.CharSequence edition, java.lang.CharSequence language, java.lang.CharSequence pages, java.lang.CharSequence filesize, java.lang.CharSequence series, java.lang.Boolean periodical, java.lang.CharSequence description, java.lang.CharSequence cover) {
-    this.title = title;
-    this.author = author;
-    this.authorFirstName = authorFirstName;
-    this.authorLastName = authorLastName;
-    this.authorMiddleName = authorMiddleName;
+  public BookMessage(java.util.List<java.lang.CharSequence> authors, java.util.List<java.lang.CharSequence> categories, java.lang.CharSequence cover, java.lang.CharSequence isbn, java.lang.CharSequence longDescription, java.lang.Integer pageCount, java.lang.CharSequence publishedDate, java.lang.CharSequence shortDescription, java.lang.CharSequence status, java.lang.CharSequence title) {
+    this.authors = authors;
     this.categories = categories;
-    this.volume = volume;
-    this.year = year;
-    this.edition = edition;
-    this.language = language;
-    this.pages = pages;
-    this.filesize = filesize;
-    this.series = series;
-    this.periodical = periodical;
-    this.description = description;
     this.cover = cover;
+    this.isbn = isbn;
+    this.longDescription = longDescription;
+    this.pageCount = pageCount;
+    this.publishedDate = publishedDate;
+    this.shortDescription = shortDescription;
+    this.status = status;
+    this.title = title;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -138,22 +120,16 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return title;
-    case 1: return author;
-    case 2: return authorFirstName;
-    case 3: return authorLastName;
-    case 4: return authorMiddleName;
-    case 5: return categories;
-    case 6: return volume;
-    case 7: return year;
-    case 8: return edition;
-    case 9: return language;
-    case 10: return pages;
-    case 11: return filesize;
-    case 12: return series;
-    case 13: return periodical;
-    case 14: return description;
-    case 15: return cover;
+    case 0: return authors;
+    case 1: return categories;
+    case 2: return cover;
+    case 3: return isbn;
+    case 4: return longDescription;
+    case 5: return pageCount;
+    case 6: return publishedDate;
+    case 7: return shortDescription;
+    case 8: return status;
+    case 9: return title;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -162,116 +138,42 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: title = (java.lang.CharSequence)value$; break;
-    case 1: author = (java.lang.CharSequence)value$; break;
-    case 2: authorFirstName = (java.lang.CharSequence)value$; break;
-    case 3: authorLastName = (java.lang.CharSequence)value$; break;
-    case 4: authorMiddleName = (java.lang.CharSequence)value$; break;
-    case 5: categories = (java.lang.CharSequence)value$; break;
-    case 6: volume = (java.lang.CharSequence)value$; break;
-    case 7: year = (java.lang.CharSequence)value$; break;
-    case 8: edition = (java.lang.CharSequence)value$; break;
-    case 9: language = (java.lang.CharSequence)value$; break;
-    case 10: pages = (java.lang.CharSequence)value$; break;
-    case 11: filesize = (java.lang.CharSequence)value$; break;
-    case 12: series = (java.lang.CharSequence)value$; break;
-    case 13: periodical = (java.lang.Boolean)value$; break;
-    case 14: description = (java.lang.CharSequence)value$; break;
-    case 15: cover = (java.lang.CharSequence)value$; break;
+    case 0: authors = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 1: categories = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 2: cover = (java.lang.CharSequence)value$; break;
+    case 3: isbn = (java.lang.CharSequence)value$; break;
+    case 4: longDescription = (java.lang.CharSequence)value$; break;
+    case 5: pageCount = (java.lang.Integer)value$; break;
+    case 6: publishedDate = (java.lang.CharSequence)value$; break;
+    case 7: shortDescription = (java.lang.CharSequence)value$; break;
+    case 8: status = (java.lang.CharSequence)value$; break;
+    case 9: title = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   /**
-   * Gets the value of the 'title' field.
-   * @return The value of the 'title' field.
+   * Gets the value of the 'authors' field.
+   * @return The value of the 'authors' field.
    */
-  public java.lang.CharSequence getTitle() {
-    return title;
+  public java.util.List<java.lang.CharSequence> getAuthors() {
+    return authors;
   }
 
 
   /**
-   * Sets the value of the 'title' field.
+   * Sets the value of the 'authors' field.
    * @param value the value to set.
    */
-  public void setTitle(java.lang.CharSequence value) {
-    this.title = value;
-  }
-
-  /**
-   * Gets the value of the 'author' field.
-   * @return The value of the 'author' field.
-   */
-  public java.lang.CharSequence getAuthor() {
-    return author;
-  }
-
-
-  /**
-   * Sets the value of the 'author' field.
-   * @param value the value to set.
-   */
-  public void setAuthor(java.lang.CharSequence value) {
-    this.author = value;
-  }
-
-  /**
-   * Gets the value of the 'authorFirstName' field.
-   * @return The value of the 'authorFirstName' field.
-   */
-  public java.lang.CharSequence getAuthorFirstName() {
-    return authorFirstName;
-  }
-
-
-  /**
-   * Sets the value of the 'authorFirstName' field.
-   * @param value the value to set.
-   */
-  public void setAuthorFirstName(java.lang.CharSequence value) {
-    this.authorFirstName = value;
-  }
-
-  /**
-   * Gets the value of the 'authorLastName' field.
-   * @return The value of the 'authorLastName' field.
-   */
-  public java.lang.CharSequence getAuthorLastName() {
-    return authorLastName;
-  }
-
-
-  /**
-   * Sets the value of the 'authorLastName' field.
-   * @param value the value to set.
-   */
-  public void setAuthorLastName(java.lang.CharSequence value) {
-    this.authorLastName = value;
-  }
-
-  /**
-   * Gets the value of the 'authorMiddleName' field.
-   * @return The value of the 'authorMiddleName' field.
-   */
-  public java.lang.CharSequence getAuthorMiddleName() {
-    return authorMiddleName;
-  }
-
-
-  /**
-   * Sets the value of the 'authorMiddleName' field.
-   * @param value the value to set.
-   */
-  public void setAuthorMiddleName(java.lang.CharSequence value) {
-    this.authorMiddleName = value;
+  public void setAuthors(java.util.List<java.lang.CharSequence> value) {
+    this.authors = value;
   }
 
   /**
    * Gets the value of the 'categories' field.
    * @return The value of the 'categories' field.
    */
-  public java.lang.CharSequence getCategories() {
+  public java.util.List<java.lang.CharSequence> getCategories() {
     return categories;
   }
 
@@ -280,161 +182,8 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'categories' field.
    * @param value the value to set.
    */
-  public void setCategories(java.lang.CharSequence value) {
+  public void setCategories(java.util.List<java.lang.CharSequence> value) {
     this.categories = value;
-  }
-
-  /**
-   * Gets the value of the 'volume' field.
-   * @return The value of the 'volume' field.
-   */
-  public java.lang.CharSequence getVolume() {
-    return volume;
-  }
-
-
-  /**
-   * Sets the value of the 'volume' field.
-   * @param value the value to set.
-   */
-  public void setVolume(java.lang.CharSequence value) {
-    this.volume = value;
-  }
-
-  /**
-   * Gets the value of the 'year' field.
-   * @return The value of the 'year' field.
-   */
-  public java.lang.CharSequence getYear() {
-    return year;
-  }
-
-
-  /**
-   * Sets the value of the 'year' field.
-   * @param value the value to set.
-   */
-  public void setYear(java.lang.CharSequence value) {
-    this.year = value;
-  }
-
-  /**
-   * Gets the value of the 'edition' field.
-   * @return The value of the 'edition' field.
-   */
-  public java.lang.CharSequence getEdition() {
-    return edition;
-  }
-
-
-  /**
-   * Sets the value of the 'edition' field.
-   * @param value the value to set.
-   */
-  public void setEdition(java.lang.CharSequence value) {
-    this.edition = value;
-  }
-
-  /**
-   * Gets the value of the 'language' field.
-   * @return The value of the 'language' field.
-   */
-  public java.lang.CharSequence getLanguage() {
-    return language;
-  }
-
-
-  /**
-   * Sets the value of the 'language' field.
-   * @param value the value to set.
-   */
-  public void setLanguage(java.lang.CharSequence value) {
-    this.language = value;
-  }
-
-  /**
-   * Gets the value of the 'pages' field.
-   * @return The value of the 'pages' field.
-   */
-  public java.lang.CharSequence getPages() {
-    return pages;
-  }
-
-
-  /**
-   * Sets the value of the 'pages' field.
-   * @param value the value to set.
-   */
-  public void setPages(java.lang.CharSequence value) {
-    this.pages = value;
-  }
-
-  /**
-   * Gets the value of the 'filesize' field.
-   * @return The value of the 'filesize' field.
-   */
-  public java.lang.CharSequence getFilesize() {
-    return filesize;
-  }
-
-
-  /**
-   * Sets the value of the 'filesize' field.
-   * @param value the value to set.
-   */
-  public void setFilesize(java.lang.CharSequence value) {
-    this.filesize = value;
-  }
-
-  /**
-   * Gets the value of the 'series' field.
-   * @return The value of the 'series' field.
-   */
-  public java.lang.CharSequence getSeries() {
-    return series;
-  }
-
-
-  /**
-   * Sets the value of the 'series' field.
-   * @param value the value to set.
-   */
-  public void setSeries(java.lang.CharSequence value) {
-    this.series = value;
-  }
-
-  /**
-   * Gets the value of the 'periodical' field.
-   * @return The value of the 'periodical' field.
-   */
-  public java.lang.Boolean getPeriodical() {
-    return periodical;
-  }
-
-
-  /**
-   * Sets the value of the 'periodical' field.
-   * @param value the value to set.
-   */
-  public void setPeriodical(java.lang.Boolean value) {
-    this.periodical = value;
-  }
-
-  /**
-   * Gets the value of the 'description' field.
-   * @return The value of the 'description' field.
-   */
-  public java.lang.CharSequence getDescription() {
-    return description;
-  }
-
-
-  /**
-   * Sets the value of the 'description' field.
-   * @param value the value to set.
-   */
-  public void setDescription(java.lang.CharSequence value) {
-    this.description = value;
   }
 
   /**
@@ -452,6 +201,125 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
    */
   public void setCover(java.lang.CharSequence value) {
     this.cover = value;
+  }
+
+  /**
+   * Gets the value of the 'isbn' field.
+   * @return The value of the 'isbn' field.
+   */
+  public java.lang.CharSequence getIsbn() {
+    return isbn;
+  }
+
+
+  /**
+   * Sets the value of the 'isbn' field.
+   * @param value the value to set.
+   */
+  public void setIsbn(java.lang.CharSequence value) {
+    this.isbn = value;
+  }
+
+  /**
+   * Gets the value of the 'longDescription' field.
+   * @return The value of the 'longDescription' field.
+   */
+  public java.lang.CharSequence getLongDescription() {
+    return longDescription;
+  }
+
+
+  /**
+   * Sets the value of the 'longDescription' field.
+   * @param value the value to set.
+   */
+  public void setLongDescription(java.lang.CharSequence value) {
+    this.longDescription = value;
+  }
+
+  /**
+   * Gets the value of the 'pageCount' field.
+   * @return The value of the 'pageCount' field.
+   */
+  public java.lang.Integer getPageCount() {
+    return pageCount;
+  }
+
+
+  /**
+   * Sets the value of the 'pageCount' field.
+   * @param value the value to set.
+   */
+  public void setPageCount(java.lang.Integer value) {
+    this.pageCount = value;
+  }
+
+  /**
+   * Gets the value of the 'publishedDate' field.
+   * @return The value of the 'publishedDate' field.
+   */
+  public java.lang.CharSequence getPublishedDate() {
+    return publishedDate;
+  }
+
+
+  /**
+   * Sets the value of the 'publishedDate' field.
+   * @param value the value to set.
+   */
+  public void setPublishedDate(java.lang.CharSequence value) {
+    this.publishedDate = value;
+  }
+
+  /**
+   * Gets the value of the 'shortDescription' field.
+   * @return The value of the 'shortDescription' field.
+   */
+  public java.lang.CharSequence getShortDescription() {
+    return shortDescription;
+  }
+
+
+  /**
+   * Sets the value of the 'shortDescription' field.
+   * @param value the value to set.
+   */
+  public void setShortDescription(java.lang.CharSequence value) {
+    this.shortDescription = value;
+  }
+
+  /**
+   * Gets the value of the 'status' field.
+   * @return The value of the 'status' field.
+   */
+  public java.lang.CharSequence getStatus() {
+    return status;
+  }
+
+
+  /**
+   * Sets the value of the 'status' field.
+   * @param value the value to set.
+   */
+  public void setStatus(java.lang.CharSequence value) {
+    this.status = value;
+  }
+
+  /**
+   * Gets the value of the 'title' field.
+   * @return The value of the 'title' field.
+   */
+  public java.lang.CharSequence getTitle() {
+    return title;
+  }
+
+
+  /**
+   * Sets the value of the 'title' field.
+   * @param value the value to set.
+   */
+  public void setTitle(java.lang.CharSequence value) {
+    this.title = value;
   }
 
   /**
@@ -495,22 +363,16 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<BookMessage>
     implements org.apache.avro.data.RecordBuilder<BookMessage> {
 
-    private java.lang.CharSequence title;
-    private java.lang.CharSequence author;
-    private java.lang.CharSequence authorFirstName;
-    private java.lang.CharSequence authorLastName;
-    private java.lang.CharSequence authorMiddleName;
-    private java.lang.CharSequence categories;
-    private java.lang.CharSequence volume;
-    private java.lang.CharSequence year;
-    private java.lang.CharSequence edition;
-    private java.lang.CharSequence language;
-    private java.lang.CharSequence pages;
-    private java.lang.CharSequence filesize;
-    private java.lang.CharSequence series;
-    private java.lang.Boolean periodical;
-    private java.lang.CharSequence description;
+    private java.util.List<java.lang.CharSequence> authors;
+    private java.util.List<java.lang.CharSequence> categories;
     private java.lang.CharSequence cover;
+    private java.lang.CharSequence isbn;
+    private java.lang.CharSequence longDescription;
+    private java.lang.Integer pageCount;
+    private java.lang.CharSequence publishedDate;
+    private java.lang.CharSequence shortDescription;
+    private java.lang.CharSequence status;
+    private java.lang.CharSequence title;
 
     /** Creates a new Builder */
     private Builder() {
@@ -523,69 +385,45 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.title)) {
-        this.title = data().deepCopy(fields()[0].schema(), other.title);
+      if (isValidValue(fields()[0], other.authors)) {
+        this.authors = data().deepCopy(fields()[0].schema(), other.authors);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.author)) {
-        this.author = data().deepCopy(fields()[1].schema(), other.author);
+      if (isValidValue(fields()[1], other.categories)) {
+        this.categories = data().deepCopy(fields()[1].schema(), other.categories);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.authorFirstName)) {
-        this.authorFirstName = data().deepCopy(fields()[2].schema(), other.authorFirstName);
+      if (isValidValue(fields()[2], other.cover)) {
+        this.cover = data().deepCopy(fields()[2].schema(), other.cover);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.authorLastName)) {
-        this.authorLastName = data().deepCopy(fields()[3].schema(), other.authorLastName);
+      if (isValidValue(fields()[3], other.isbn)) {
+        this.isbn = data().deepCopy(fields()[3].schema(), other.isbn);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.authorMiddleName)) {
-        this.authorMiddleName = data().deepCopy(fields()[4].schema(), other.authorMiddleName);
+      if (isValidValue(fields()[4], other.longDescription)) {
+        this.longDescription = data().deepCopy(fields()[4].schema(), other.longDescription);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.categories)) {
-        this.categories = data().deepCopy(fields()[5].schema(), other.categories);
+      if (isValidValue(fields()[5], other.pageCount)) {
+        this.pageCount = data().deepCopy(fields()[5].schema(), other.pageCount);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.volume)) {
-        this.volume = data().deepCopy(fields()[6].schema(), other.volume);
+      if (isValidValue(fields()[6], other.publishedDate)) {
+        this.publishedDate = data().deepCopy(fields()[6].schema(), other.publishedDate);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.year)) {
-        this.year = data().deepCopy(fields()[7].schema(), other.year);
+      if (isValidValue(fields()[7], other.shortDescription)) {
+        this.shortDescription = data().deepCopy(fields()[7].schema(), other.shortDescription);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
-      if (isValidValue(fields()[8], other.edition)) {
-        this.edition = data().deepCopy(fields()[8].schema(), other.edition);
+      if (isValidValue(fields()[8], other.status)) {
+        this.status = data().deepCopy(fields()[8].schema(), other.status);
         fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
-      if (isValidValue(fields()[9], other.language)) {
-        this.language = data().deepCopy(fields()[9].schema(), other.language);
+      if (isValidValue(fields()[9], other.title)) {
+        this.title = data().deepCopy(fields()[9].schema(), other.title);
         fieldSetFlags()[9] = other.fieldSetFlags()[9];
-      }
-      if (isValidValue(fields()[10], other.pages)) {
-        this.pages = data().deepCopy(fields()[10].schema(), other.pages);
-        fieldSetFlags()[10] = other.fieldSetFlags()[10];
-      }
-      if (isValidValue(fields()[11], other.filesize)) {
-        this.filesize = data().deepCopy(fields()[11].schema(), other.filesize);
-        fieldSetFlags()[11] = other.fieldSetFlags()[11];
-      }
-      if (isValidValue(fields()[12], other.series)) {
-        this.series = data().deepCopy(fields()[12].schema(), other.series);
-        fieldSetFlags()[12] = other.fieldSetFlags()[12];
-      }
-      if (isValidValue(fields()[13], other.periodical)) {
-        this.periodical = data().deepCopy(fields()[13].schema(), other.periodical);
-        fieldSetFlags()[13] = other.fieldSetFlags()[13];
-      }
-      if (isValidValue(fields()[14], other.description)) {
-        this.description = data().deepCopy(fields()[14].schema(), other.description);
-        fieldSetFlags()[14] = other.fieldSetFlags()[14];
-      }
-      if (isValidValue(fields()[15], other.cover)) {
-        this.cover = data().deepCopy(fields()[15].schema(), other.cover);
-        fieldSetFlags()[15] = other.fieldSetFlags()[15];
       }
     }
 
@@ -595,269 +433,85 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.title)) {
-        this.title = data().deepCopy(fields()[0].schema(), other.title);
+      if (isValidValue(fields()[0], other.authors)) {
+        this.authors = data().deepCopy(fields()[0].schema(), other.authors);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.author)) {
-        this.author = data().deepCopy(fields()[1].schema(), other.author);
+      if (isValidValue(fields()[1], other.categories)) {
+        this.categories = data().deepCopy(fields()[1].schema(), other.categories);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.authorFirstName)) {
-        this.authorFirstName = data().deepCopy(fields()[2].schema(), other.authorFirstName);
+      if (isValidValue(fields()[2], other.cover)) {
+        this.cover = data().deepCopy(fields()[2].schema(), other.cover);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.authorLastName)) {
-        this.authorLastName = data().deepCopy(fields()[3].schema(), other.authorLastName);
+      if (isValidValue(fields()[3], other.isbn)) {
+        this.isbn = data().deepCopy(fields()[3].schema(), other.isbn);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.authorMiddleName)) {
-        this.authorMiddleName = data().deepCopy(fields()[4].schema(), other.authorMiddleName);
+      if (isValidValue(fields()[4], other.longDescription)) {
+        this.longDescription = data().deepCopy(fields()[4].schema(), other.longDescription);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.categories)) {
-        this.categories = data().deepCopy(fields()[5].schema(), other.categories);
+      if (isValidValue(fields()[5], other.pageCount)) {
+        this.pageCount = data().deepCopy(fields()[5].schema(), other.pageCount);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.volume)) {
-        this.volume = data().deepCopy(fields()[6].schema(), other.volume);
+      if (isValidValue(fields()[6], other.publishedDate)) {
+        this.publishedDate = data().deepCopy(fields()[6].schema(), other.publishedDate);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.year)) {
-        this.year = data().deepCopy(fields()[7].schema(), other.year);
+      if (isValidValue(fields()[7], other.shortDescription)) {
+        this.shortDescription = data().deepCopy(fields()[7].schema(), other.shortDescription);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.edition)) {
-        this.edition = data().deepCopy(fields()[8].schema(), other.edition);
+      if (isValidValue(fields()[8], other.status)) {
+        this.status = data().deepCopy(fields()[8].schema(), other.status);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.language)) {
-        this.language = data().deepCopy(fields()[9].schema(), other.language);
+      if (isValidValue(fields()[9], other.title)) {
+        this.title = data().deepCopy(fields()[9].schema(), other.title);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.pages)) {
-        this.pages = data().deepCopy(fields()[10].schema(), other.pages);
-        fieldSetFlags()[10] = true;
-      }
-      if (isValidValue(fields()[11], other.filesize)) {
-        this.filesize = data().deepCopy(fields()[11].schema(), other.filesize);
-        fieldSetFlags()[11] = true;
-      }
-      if (isValidValue(fields()[12], other.series)) {
-        this.series = data().deepCopy(fields()[12].schema(), other.series);
-        fieldSetFlags()[12] = true;
-      }
-      if (isValidValue(fields()[13], other.periodical)) {
-        this.periodical = data().deepCopy(fields()[13].schema(), other.periodical);
-        fieldSetFlags()[13] = true;
-      }
-      if (isValidValue(fields()[14], other.description)) {
-        this.description = data().deepCopy(fields()[14].schema(), other.description);
-        fieldSetFlags()[14] = true;
-      }
-      if (isValidValue(fields()[15], other.cover)) {
-        this.cover = data().deepCopy(fields()[15].schema(), other.cover);
-        fieldSetFlags()[15] = true;
-      }
     }
 
     /**
-      * Gets the value of the 'title' field.
+      * Gets the value of the 'authors' field.
       * @return The value.
       */
-    public java.lang.CharSequence getTitle() {
-      return title;
+    public java.util.List<java.lang.CharSequence> getAuthors() {
+      return authors;
     }
 
 
     /**
-      * Sets the value of the 'title' field.
-      * @param value The value of 'title'.
+      * Sets the value of the 'authors' field.
+      * @param value The value of 'authors'.
       * @return This builder.
       */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setTitle(java.lang.CharSequence value) {
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setAuthors(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[0], value);
-      this.title = value;
+      this.authors = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'title' field has been set.
-      * @return True if the 'title' field has been set, false otherwise.
+      * Checks whether the 'authors' field has been set.
+      * @return True if the 'authors' field has been set, false otherwise.
       */
-    public boolean hasTitle() {
+    public boolean hasAuthors() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'title' field.
+      * Clears the value of the 'authors' field.
       * @return This builder.
       */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearTitle() {
-      title = null;
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearAuthors() {
+      authors = null;
       fieldSetFlags()[0] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'author' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getAuthor() {
-      return author;
-    }
-
-
-    /**
-      * Sets the value of the 'author' field.
-      * @param value The value of 'author'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setAuthor(java.lang.CharSequence value) {
-      validate(fields()[1], value);
-      this.author = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'author' field has been set.
-      * @return True if the 'author' field has been set, false otherwise.
-      */
-    public boolean hasAuthor() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'author' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearAuthor() {
-      author = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'authorFirstName' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getAuthorFirstName() {
-      return authorFirstName;
-    }
-
-
-    /**
-      * Sets the value of the 'authorFirstName' field.
-      * @param value The value of 'authorFirstName'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setAuthorFirstName(java.lang.CharSequence value) {
-      validate(fields()[2], value);
-      this.authorFirstName = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'authorFirstName' field has been set.
-      * @return True if the 'authorFirstName' field has been set, false otherwise.
-      */
-    public boolean hasAuthorFirstName() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'authorFirstName' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearAuthorFirstName() {
-      authorFirstName = null;
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'authorLastName' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getAuthorLastName() {
-      return authorLastName;
-    }
-
-
-    /**
-      * Sets the value of the 'authorLastName' field.
-      * @param value The value of 'authorLastName'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setAuthorLastName(java.lang.CharSequence value) {
-      validate(fields()[3], value);
-      this.authorLastName = value;
-      fieldSetFlags()[3] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'authorLastName' field has been set.
-      * @return True if the 'authorLastName' field has been set, false otherwise.
-      */
-    public boolean hasAuthorLastName() {
-      return fieldSetFlags()[3];
-    }
-
-
-    /**
-      * Clears the value of the 'authorLastName' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearAuthorLastName() {
-      authorLastName = null;
-      fieldSetFlags()[3] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'authorMiddleName' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getAuthorMiddleName() {
-      return authorMiddleName;
-    }
-
-
-    /**
-      * Sets the value of the 'authorMiddleName' field.
-      * @param value The value of 'authorMiddleName'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setAuthorMiddleName(java.lang.CharSequence value) {
-      validate(fields()[4], value);
-      this.authorMiddleName = value;
-      fieldSetFlags()[4] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'authorMiddleName' field has been set.
-      * @return True if the 'authorMiddleName' field has been set, false otherwise.
-      */
-    public boolean hasAuthorMiddleName() {
-      return fieldSetFlags()[4];
-    }
-
-
-    /**
-      * Clears the value of the 'authorMiddleName' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearAuthorMiddleName() {
-      authorMiddleName = null;
-      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -865,7 +519,7 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'categories' field.
       * @return The value.
       */
-    public java.lang.CharSequence getCategories() {
+    public java.util.List<java.lang.CharSequence> getCategories() {
       return categories;
     }
 
@@ -875,10 +529,10 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'categories'.
       * @return This builder.
       */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setCategories(java.lang.CharSequence value) {
-      validate(fields()[5], value);
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setCategories(java.util.List<java.lang.CharSequence> value) {
+      validate(fields()[1], value);
       this.categories = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -887,7 +541,7 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @return True if the 'categories' field has been set, false otherwise.
       */
     public boolean hasCategories() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[1];
     }
 
 
@@ -897,367 +551,7 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       */
     public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearCategories() {
       categories = null;
-      fieldSetFlags()[5] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'volume' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getVolume() {
-      return volume;
-    }
-
-
-    /**
-      * Sets the value of the 'volume' field.
-      * @param value The value of 'volume'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setVolume(java.lang.CharSequence value) {
-      validate(fields()[6], value);
-      this.volume = value;
-      fieldSetFlags()[6] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'volume' field has been set.
-      * @return True if the 'volume' field has been set, false otherwise.
-      */
-    public boolean hasVolume() {
-      return fieldSetFlags()[6];
-    }
-
-
-    /**
-      * Clears the value of the 'volume' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearVolume() {
-      volume = null;
-      fieldSetFlags()[6] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'year' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getYear() {
-      return year;
-    }
-
-
-    /**
-      * Sets the value of the 'year' field.
-      * @param value The value of 'year'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setYear(java.lang.CharSequence value) {
-      validate(fields()[7], value);
-      this.year = value;
-      fieldSetFlags()[7] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'year' field has been set.
-      * @return True if the 'year' field has been set, false otherwise.
-      */
-    public boolean hasYear() {
-      return fieldSetFlags()[7];
-    }
-
-
-    /**
-      * Clears the value of the 'year' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearYear() {
-      year = null;
-      fieldSetFlags()[7] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'edition' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getEdition() {
-      return edition;
-    }
-
-
-    /**
-      * Sets the value of the 'edition' field.
-      * @param value The value of 'edition'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setEdition(java.lang.CharSequence value) {
-      validate(fields()[8], value);
-      this.edition = value;
-      fieldSetFlags()[8] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'edition' field has been set.
-      * @return True if the 'edition' field has been set, false otherwise.
-      */
-    public boolean hasEdition() {
-      return fieldSetFlags()[8];
-    }
-
-
-    /**
-      * Clears the value of the 'edition' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearEdition() {
-      edition = null;
-      fieldSetFlags()[8] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'language' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getLanguage() {
-      return language;
-    }
-
-
-    /**
-      * Sets the value of the 'language' field.
-      * @param value The value of 'language'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setLanguage(java.lang.CharSequence value) {
-      validate(fields()[9], value);
-      this.language = value;
-      fieldSetFlags()[9] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'language' field has been set.
-      * @return True if the 'language' field has been set, false otherwise.
-      */
-    public boolean hasLanguage() {
-      return fieldSetFlags()[9];
-    }
-
-
-    /**
-      * Clears the value of the 'language' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearLanguage() {
-      language = null;
-      fieldSetFlags()[9] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'pages' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getPages() {
-      return pages;
-    }
-
-
-    /**
-      * Sets the value of the 'pages' field.
-      * @param value The value of 'pages'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setPages(java.lang.CharSequence value) {
-      validate(fields()[10], value);
-      this.pages = value;
-      fieldSetFlags()[10] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'pages' field has been set.
-      * @return True if the 'pages' field has been set, false otherwise.
-      */
-    public boolean hasPages() {
-      return fieldSetFlags()[10];
-    }
-
-
-    /**
-      * Clears the value of the 'pages' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearPages() {
-      pages = null;
-      fieldSetFlags()[10] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'filesize' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getFilesize() {
-      return filesize;
-    }
-
-
-    /**
-      * Sets the value of the 'filesize' field.
-      * @param value The value of 'filesize'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setFilesize(java.lang.CharSequence value) {
-      validate(fields()[11], value);
-      this.filesize = value;
-      fieldSetFlags()[11] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'filesize' field has been set.
-      * @return True if the 'filesize' field has been set, false otherwise.
-      */
-    public boolean hasFilesize() {
-      return fieldSetFlags()[11];
-    }
-
-
-    /**
-      * Clears the value of the 'filesize' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearFilesize() {
-      filesize = null;
-      fieldSetFlags()[11] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'series' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getSeries() {
-      return series;
-    }
-
-
-    /**
-      * Sets the value of the 'series' field.
-      * @param value The value of 'series'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setSeries(java.lang.CharSequence value) {
-      validate(fields()[12], value);
-      this.series = value;
-      fieldSetFlags()[12] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'series' field has been set.
-      * @return True if the 'series' field has been set, false otherwise.
-      */
-    public boolean hasSeries() {
-      return fieldSetFlags()[12];
-    }
-
-
-    /**
-      * Clears the value of the 'series' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearSeries() {
-      series = null;
-      fieldSetFlags()[12] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'periodical' field.
-      * @return The value.
-      */
-    public java.lang.Boolean getPeriodical() {
-      return periodical;
-    }
-
-
-    /**
-      * Sets the value of the 'periodical' field.
-      * @param value The value of 'periodical'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setPeriodical(java.lang.Boolean value) {
-      validate(fields()[13], value);
-      this.periodical = value;
-      fieldSetFlags()[13] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'periodical' field has been set.
-      * @return True if the 'periodical' field has been set, false otherwise.
-      */
-    public boolean hasPeriodical() {
-      return fieldSetFlags()[13];
-    }
-
-
-    /**
-      * Clears the value of the 'periodical' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearPeriodical() {
-      periodical = null;
-      fieldSetFlags()[13] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'description' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getDescription() {
-      return description;
-    }
-
-
-    /**
-      * Sets the value of the 'description' field.
-      * @param value The value of 'description'.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setDescription(java.lang.CharSequence value) {
-      validate(fields()[14], value);
-      this.description = value;
-      fieldSetFlags()[14] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'description' field has been set.
-      * @return True if the 'description' field has been set, false otherwise.
-      */
-    public boolean hasDescription() {
-      return fieldSetFlags()[14];
-    }
-
-
-    /**
-      * Clears the value of the 'description' field.
-      * @return This builder.
-      */
-    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearDescription() {
-      description = null;
-      fieldSetFlags()[14] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -1276,9 +570,9 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @return This builder.
       */
     public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setCover(java.lang.CharSequence value) {
-      validate(fields()[15], value);
+      validate(fields()[2], value);
       this.cover = value;
-      fieldSetFlags()[15] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -1287,7 +581,7 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * @return True if the 'cover' field has been set, false otherwise.
       */
     public boolean hasCover() {
-      return fieldSetFlags()[15];
+      return fieldSetFlags()[2];
     }
 
 
@@ -1297,7 +591,287 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       */
     public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearCover() {
       cover = null;
-      fieldSetFlags()[15] = false;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'isbn' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getIsbn() {
+      return isbn;
+    }
+
+
+    /**
+      * Sets the value of the 'isbn' field.
+      * @param value The value of 'isbn'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setIsbn(java.lang.CharSequence value) {
+      validate(fields()[3], value);
+      this.isbn = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'isbn' field has been set.
+      * @return True if the 'isbn' field has been set, false otherwise.
+      */
+    public boolean hasIsbn() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'isbn' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearIsbn() {
+      isbn = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'longDescription' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getLongDescription() {
+      return longDescription;
+    }
+
+
+    /**
+      * Sets the value of the 'longDescription' field.
+      * @param value The value of 'longDescription'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setLongDescription(java.lang.CharSequence value) {
+      validate(fields()[4], value);
+      this.longDescription = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'longDescription' field has been set.
+      * @return True if the 'longDescription' field has been set, false otherwise.
+      */
+    public boolean hasLongDescription() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'longDescription' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearLongDescription() {
+      longDescription = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'pageCount' field.
+      * @return The value.
+      */
+    public java.lang.Integer getPageCount() {
+      return pageCount;
+    }
+
+
+    /**
+      * Sets the value of the 'pageCount' field.
+      * @param value The value of 'pageCount'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setPageCount(java.lang.Integer value) {
+      validate(fields()[5], value);
+      this.pageCount = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'pageCount' field has been set.
+      * @return True if the 'pageCount' field has been set, false otherwise.
+      */
+    public boolean hasPageCount() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'pageCount' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearPageCount() {
+      pageCount = null;
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'publishedDate' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getPublishedDate() {
+      return publishedDate;
+    }
+
+
+    /**
+      * Sets the value of the 'publishedDate' field.
+      * @param value The value of 'publishedDate'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setPublishedDate(java.lang.CharSequence value) {
+      validate(fields()[6], value);
+      this.publishedDate = value;
+      fieldSetFlags()[6] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'publishedDate' field has been set.
+      * @return True if the 'publishedDate' field has been set, false otherwise.
+      */
+    public boolean hasPublishedDate() {
+      return fieldSetFlags()[6];
+    }
+
+
+    /**
+      * Clears the value of the 'publishedDate' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearPublishedDate() {
+      publishedDate = null;
+      fieldSetFlags()[6] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'shortDescription' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getShortDescription() {
+      return shortDescription;
+    }
+
+
+    /**
+      * Sets the value of the 'shortDescription' field.
+      * @param value The value of 'shortDescription'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setShortDescription(java.lang.CharSequence value) {
+      validate(fields()[7], value);
+      this.shortDescription = value;
+      fieldSetFlags()[7] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'shortDescription' field has been set.
+      * @return True if the 'shortDescription' field has been set, false otherwise.
+      */
+    public boolean hasShortDescription() {
+      return fieldSetFlags()[7];
+    }
+
+
+    /**
+      * Clears the value of the 'shortDescription' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearShortDescription() {
+      shortDescription = null;
+      fieldSetFlags()[7] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'status' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getStatus() {
+      return status;
+    }
+
+
+    /**
+      * Sets the value of the 'status' field.
+      * @param value The value of 'status'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setStatus(java.lang.CharSequence value) {
+      validate(fields()[8], value);
+      this.status = value;
+      fieldSetFlags()[8] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'status' field has been set.
+      * @return True if the 'status' field has been set, false otherwise.
+      */
+    public boolean hasStatus() {
+      return fieldSetFlags()[8];
+    }
+
+
+    /**
+      * Clears the value of the 'status' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearStatus() {
+      status = null;
+      fieldSetFlags()[8] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'title' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getTitle() {
+      return title;
+    }
+
+
+    /**
+      * Sets the value of the 'title' field.
+      * @param value The value of 'title'.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder setTitle(java.lang.CharSequence value) {
+      validate(fields()[9], value);
+      this.title = value;
+      fieldSetFlags()[9] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'title' field has been set.
+      * @return True if the 'title' field has been set, false otherwise.
+      */
+    public boolean hasTitle() {
+      return fieldSetFlags()[9];
+    }
+
+
+    /**
+      * Clears the value of the 'title' field.
+      * @return This builder.
+      */
+    public com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema.BookMessage.Builder clearTitle() {
+      title = null;
+      fieldSetFlags()[9] = false;
       return this;
     }
 
@@ -1306,22 +880,16 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
     public BookMessage build() {
       try {
         BookMessage record = new BookMessage();
-        record.title = fieldSetFlags()[0] ? this.title : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.author = fieldSetFlags()[1] ? this.author : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.authorFirstName = fieldSetFlags()[2] ? this.authorFirstName : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.authorLastName = fieldSetFlags()[3] ? this.authorLastName : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.authorMiddleName = fieldSetFlags()[4] ? this.authorMiddleName : (java.lang.CharSequence) defaultValue(fields()[4]);
-        record.categories = fieldSetFlags()[5] ? this.categories : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.volume = fieldSetFlags()[6] ? this.volume : (java.lang.CharSequence) defaultValue(fields()[6]);
-        record.year = fieldSetFlags()[7] ? this.year : (java.lang.CharSequence) defaultValue(fields()[7]);
-        record.edition = fieldSetFlags()[8] ? this.edition : (java.lang.CharSequence) defaultValue(fields()[8]);
-        record.language = fieldSetFlags()[9] ? this.language : (java.lang.CharSequence) defaultValue(fields()[9]);
-        record.pages = fieldSetFlags()[10] ? this.pages : (java.lang.CharSequence) defaultValue(fields()[10]);
-        record.filesize = fieldSetFlags()[11] ? this.filesize : (java.lang.CharSequence) defaultValue(fields()[11]);
-        record.series = fieldSetFlags()[12] ? this.series : (java.lang.CharSequence) defaultValue(fields()[12]);
-        record.periodical = fieldSetFlags()[13] ? this.periodical : (java.lang.Boolean) defaultValue(fields()[13]);
-        record.description = fieldSetFlags()[14] ? this.description : (java.lang.CharSequence) defaultValue(fields()[14]);
-        record.cover = fieldSetFlags()[15] ? this.cover : (java.lang.CharSequence) defaultValue(fields()[15]);
+        record.authors = fieldSetFlags()[0] ? this.authors : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
+        record.categories = fieldSetFlags()[1] ? this.categories : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
+        record.cover = fieldSetFlags()[2] ? this.cover : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.isbn = fieldSetFlags()[3] ? this.isbn : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.longDescription = fieldSetFlags()[4] ? this.longDescription : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.pageCount = fieldSetFlags()[5] ? this.pageCount : (java.lang.Integer) defaultValue(fields()[5]);
+        record.publishedDate = fieldSetFlags()[6] ? this.publishedDate : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.shortDescription = fieldSetFlags()[7] ? this.shortDescription : (java.lang.CharSequence) defaultValue(fields()[7]);
+        record.status = fieldSetFlags()[8] ? this.status : (java.lang.CharSequence) defaultValue(fields()[8]);
+        record.title = fieldSetFlags()[9] ? this.title : (java.lang.CharSequence) defaultValue(fields()[9]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1354,44 +922,29 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    if (this.title == null) {
+    if (this.authors == null) {
       out.writeIndex(0);
       out.writeNull();
     } else {
       out.writeIndex(1);
-      out.writeString(this.title);
-    }
-
-    if (this.author == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.author);
-    }
-
-    if (this.authorFirstName == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.authorFirstName);
-    }
-
-    if (this.authorLastName == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.authorLastName);
-    }
-
-    if (this.authorMiddleName == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.authorMiddleName);
+      long size0 = this.authors.size();
+      out.writeArrayStart();
+      out.setItemCount(size0);
+      long actualSize0 = 0;
+      for (java.lang.CharSequence e0: this.authors) {
+        actualSize0++;
+        out.startItem();
+        if (e0 == null) {
+          out.writeIndex(0);
+          out.writeNull();
+        } else {
+          out.writeIndex(1);
+          out.writeString(e0);
+        }
+      }
+      out.writeArrayEnd();
+      if (actualSize0 != size0)
+        throw new java.util.ConcurrentModificationException("Array-size written was " + size0 + ", but element count was " + actualSize0 + ".");
     }
 
     if (this.categories == null) {
@@ -1399,79 +952,24 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
       out.writeNull();
     } else {
       out.writeIndex(1);
-      out.writeString(this.categories);
-    }
-
-    if (this.volume == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.volume);
-    }
-
-    if (this.year == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.year);
-    }
-
-    if (this.edition == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.edition);
-    }
-
-    if (this.language == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.language);
-    }
-
-    if (this.pages == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.pages);
-    }
-
-    if (this.filesize == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.filesize);
-    }
-
-    if (this.series == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.series);
-    }
-
-    if (this.periodical == null) {
-      out.writeIndex(1);
-      out.writeNull();
-    } else {
-      out.writeIndex(0);
-      out.writeBoolean(this.periodical);
-    }
-
-    if (this.description == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.description);
+      long size1 = this.categories.size();
+      out.writeArrayStart();
+      out.setItemCount(size1);
+      long actualSize1 = 0;
+      for (java.lang.CharSequence e1: this.categories) {
+        actualSize1++;
+        out.startItem();
+        if (e1 == null) {
+          out.writeIndex(0);
+          out.writeNull();
+        } else {
+          out.writeIndex(1);
+          out.writeString(e1);
+        }
+      }
+      out.writeArrayEnd();
+      if (actualSize1 != size1)
+        throw new java.util.ConcurrentModificationException("Array-size written was " + size1 + ", but element count was " + actualSize1 + ".");
     }
 
     if (this.cover == null) {
@@ -1480,6 +978,62 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
     } else {
       out.writeIndex(1);
       out.writeString(this.cover);
+    }
+
+    if (this.isbn == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.isbn);
+    }
+
+    if (this.longDescription == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.longDescription);
+    }
+
+    if (this.pageCount == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeInt(this.pageCount);
+    }
+
+    if (this.publishedDate == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.publishedDate);
+    }
+
+    if (this.shortDescription == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.shortDescription);
+    }
+
+    if (this.status == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.status);
+    }
+
+    if (this.title == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.title);
     }
 
   }
@@ -1491,107 +1045,52 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
     if (fieldOrder == null) {
       if (in.readIndex() != 1) {
         in.readNull();
-        this.title = null;
+        this.authors = null;
       } else {
-        this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.author = null;
-      } else {
-        this.author = in.readString(this.author instanceof Utf8 ? (Utf8)this.author : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.authorFirstName = null;
-      } else {
-        this.authorFirstName = in.readString(this.authorFirstName instanceof Utf8 ? (Utf8)this.authorFirstName : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.authorLastName = null;
-      } else {
-        this.authorLastName = in.readString(this.authorLastName instanceof Utf8 ? (Utf8)this.authorLastName : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.authorMiddleName = null;
-      } else {
-        this.authorMiddleName = in.readString(this.authorMiddleName instanceof Utf8 ? (Utf8)this.authorMiddleName : null);
+        long size0 = in.readArrayStart();
+        java.util.List<java.lang.CharSequence> a0 = this.authors;
+        if (a0 == null) {
+          a0 = new SpecificData.Array<java.lang.CharSequence>((int)size0, SCHEMA$.getField("authors").schema().getTypes().get(1));
+          this.authors = a0;
+        } else a0.clear();
+        SpecificData.Array<java.lang.CharSequence> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.CharSequence>)a0 : null);
+        for ( ; 0 < size0; size0 = in.arrayNext()) {
+          for ( ; size0 != 0; size0--) {
+            java.lang.CharSequence e0 = (ga0 != null ? ga0.peek() : null);
+            if (in.readIndex() != 1) {
+              in.readNull();
+              e0 = null;
+            } else {
+              e0 = in.readString(e0 instanceof Utf8 ? (Utf8)e0 : null);
+            }
+            a0.add(e0);
+          }
+        }
       }
 
       if (in.readIndex() != 1) {
         in.readNull();
         this.categories = null;
       } else {
-        this.categories = in.readString(this.categories instanceof Utf8 ? (Utf8)this.categories : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.volume = null;
-      } else {
-        this.volume = in.readString(this.volume instanceof Utf8 ? (Utf8)this.volume : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.year = null;
-      } else {
-        this.year = in.readString(this.year instanceof Utf8 ? (Utf8)this.year : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.edition = null;
-      } else {
-        this.edition = in.readString(this.edition instanceof Utf8 ? (Utf8)this.edition : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.language = null;
-      } else {
-        this.language = in.readString(this.language instanceof Utf8 ? (Utf8)this.language : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.pages = null;
-      } else {
-        this.pages = in.readString(this.pages instanceof Utf8 ? (Utf8)this.pages : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.filesize = null;
-      } else {
-        this.filesize = in.readString(this.filesize instanceof Utf8 ? (Utf8)this.filesize : null);
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.series = null;
-      } else {
-        this.series = in.readString(this.series instanceof Utf8 ? (Utf8)this.series : null);
-      }
-
-      if (in.readIndex() != 0) {
-        in.readNull();
-        this.periodical = null;
-      } else {
-        this.periodical = in.readBoolean();
-      }
-
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.description = null;
-      } else {
-        this.description = in.readString(this.description instanceof Utf8 ? (Utf8)this.description : null);
+        long size1 = in.readArrayStart();
+        java.util.List<java.lang.CharSequence> a1 = this.categories;
+        if (a1 == null) {
+          a1 = new SpecificData.Array<java.lang.CharSequence>((int)size1, SCHEMA$.getField("categories").schema().getTypes().get(1));
+          this.categories = a1;
+        } else a1.clear();
+        SpecificData.Array<java.lang.CharSequence> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.CharSequence>)a1 : null);
+        for ( ; 0 < size1; size1 = in.arrayNext()) {
+          for ( ; size1 != 0; size1--) {
+            java.lang.CharSequence e1 = (ga1 != null ? ga1.peek() : null);
+            if (in.readIndex() != 1) {
+              in.readNull();
+              e1 = null;
+            } else {
+              e1 = in.readString(e1 instanceof Utf8 ? (Utf8)e1 : null);
+            }
+            a1.add(e1);
+          }
+        }
       }
 
       if (in.readIndex() != 1) {
@@ -1601,150 +1100,181 @@ public class BookMessage extends org.apache.avro.specific.SpecificRecordBase imp
         this.cover = in.readString(this.cover instanceof Utf8 ? (Utf8)this.cover : null);
       }
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.isbn = null;
+      } else {
+        this.isbn = in.readString(this.isbn instanceof Utf8 ? (Utf8)this.isbn : null);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.longDescription = null;
+      } else {
+        this.longDescription = in.readString(this.longDescription instanceof Utf8 ? (Utf8)this.longDescription : null);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.pageCount = null;
+      } else {
+        this.pageCount = in.readInt();
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.publishedDate = null;
+      } else {
+        this.publishedDate = in.readString(this.publishedDate instanceof Utf8 ? (Utf8)this.publishedDate : null);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.shortDescription = null;
+      } else {
+        this.shortDescription = in.readString(this.shortDescription instanceof Utf8 ? (Utf8)this.shortDescription : null);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.status = null;
+      } else {
+        this.status = in.readString(this.status instanceof Utf8 ? (Utf8)this.status : null);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.title = null;
+      } else {
+        this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
+      }
+
     } else {
-      for (int i = 0; i < 16; i++) {
+      for (int i = 0; i < 10; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.title = null;
+            this.authors = null;
           } else {
-            this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
+            long size0 = in.readArrayStart();
+            java.util.List<java.lang.CharSequence> a0 = this.authors;
+            if (a0 == null) {
+              a0 = new SpecificData.Array<java.lang.CharSequence>((int)size0, SCHEMA$.getField("authors").schema().getTypes().get(1));
+              this.authors = a0;
+            } else a0.clear();
+            SpecificData.Array<java.lang.CharSequence> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.CharSequence>)a0 : null);
+            for ( ; 0 < size0; size0 = in.arrayNext()) {
+              for ( ; size0 != 0; size0--) {
+                java.lang.CharSequence e0 = (ga0 != null ? ga0.peek() : null);
+                if (in.readIndex() != 1) {
+                  in.readNull();
+                  e0 = null;
+                } else {
+                  e0 = in.readString(e0 instanceof Utf8 ? (Utf8)e0 : null);
+                }
+                a0.add(e0);
+              }
+            }
           }
           break;
 
         case 1:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.author = null;
+            this.categories = null;
           } else {
-            this.author = in.readString(this.author instanceof Utf8 ? (Utf8)this.author : null);
+            long size1 = in.readArrayStart();
+            java.util.List<java.lang.CharSequence> a1 = this.categories;
+            if (a1 == null) {
+              a1 = new SpecificData.Array<java.lang.CharSequence>((int)size1, SCHEMA$.getField("categories").schema().getTypes().get(1));
+              this.categories = a1;
+            } else a1.clear();
+            SpecificData.Array<java.lang.CharSequence> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.CharSequence>)a1 : null);
+            for ( ; 0 < size1; size1 = in.arrayNext()) {
+              for ( ; size1 != 0; size1--) {
+                java.lang.CharSequence e1 = (ga1 != null ? ga1.peek() : null);
+                if (in.readIndex() != 1) {
+                  in.readNull();
+                  e1 = null;
+                } else {
+                  e1 = in.readString(e1 instanceof Utf8 ? (Utf8)e1 : null);
+                }
+                a1.add(e1);
+              }
+            }
           }
           break;
 
         case 2:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.authorFirstName = null;
+            this.cover = null;
           } else {
-            this.authorFirstName = in.readString(this.authorFirstName instanceof Utf8 ? (Utf8)this.authorFirstName : null);
+            this.cover = in.readString(this.cover instanceof Utf8 ? (Utf8)this.cover : null);
           }
           break;
 
         case 3:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.authorLastName = null;
+            this.isbn = null;
           } else {
-            this.authorLastName = in.readString(this.authorLastName instanceof Utf8 ? (Utf8)this.authorLastName : null);
+            this.isbn = in.readString(this.isbn instanceof Utf8 ? (Utf8)this.isbn : null);
           }
           break;
 
         case 4:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.authorMiddleName = null;
+            this.longDescription = null;
           } else {
-            this.authorMiddleName = in.readString(this.authorMiddleName instanceof Utf8 ? (Utf8)this.authorMiddleName : null);
+            this.longDescription = in.readString(this.longDescription instanceof Utf8 ? (Utf8)this.longDescription : null);
           }
           break;
 
         case 5:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.categories = null;
+            this.pageCount = null;
           } else {
-            this.categories = in.readString(this.categories instanceof Utf8 ? (Utf8)this.categories : null);
+            this.pageCount = in.readInt();
           }
           break;
 
         case 6:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.volume = null;
+            this.publishedDate = null;
           } else {
-            this.volume = in.readString(this.volume instanceof Utf8 ? (Utf8)this.volume : null);
+            this.publishedDate = in.readString(this.publishedDate instanceof Utf8 ? (Utf8)this.publishedDate : null);
           }
           break;
 
         case 7:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.year = null;
+            this.shortDescription = null;
           } else {
-            this.year = in.readString(this.year instanceof Utf8 ? (Utf8)this.year : null);
+            this.shortDescription = in.readString(this.shortDescription instanceof Utf8 ? (Utf8)this.shortDescription : null);
           }
           break;
 
         case 8:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.edition = null;
+            this.status = null;
           } else {
-            this.edition = in.readString(this.edition instanceof Utf8 ? (Utf8)this.edition : null);
+            this.status = in.readString(this.status instanceof Utf8 ? (Utf8)this.status : null);
           }
           break;
 
         case 9:
           if (in.readIndex() != 1) {
             in.readNull();
-            this.language = null;
+            this.title = null;
           } else {
-            this.language = in.readString(this.language instanceof Utf8 ? (Utf8)this.language : null);
-          }
-          break;
-
-        case 10:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.pages = null;
-          } else {
-            this.pages = in.readString(this.pages instanceof Utf8 ? (Utf8)this.pages : null);
-          }
-          break;
-
-        case 11:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.filesize = null;
-          } else {
-            this.filesize = in.readString(this.filesize instanceof Utf8 ? (Utf8)this.filesize : null);
-          }
-          break;
-
-        case 12:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.series = null;
-          } else {
-            this.series = in.readString(this.series instanceof Utf8 ? (Utf8)this.series : null);
-          }
-          break;
-
-        case 13:
-          if (in.readIndex() != 0) {
-            in.readNull();
-            this.periodical = null;
-          } else {
-            this.periodical = in.readBoolean();
-          }
-          break;
-
-        case 14:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.description = null;
-          } else {
-            this.description = in.readString(this.description instanceof Utf8 ? (Utf8)this.description : null);
-          }
-          break;
-
-        case 15:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.cover = null;
-          } else {
-            this.cover = in.readString(this.cover instanceof Utf8 ? (Utf8)this.cover : null);
+            this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
           }
           break;
 

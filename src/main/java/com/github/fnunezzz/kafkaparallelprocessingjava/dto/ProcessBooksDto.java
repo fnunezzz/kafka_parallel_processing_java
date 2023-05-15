@@ -2,16 +2,14 @@ package com.github.fnunezzz.kafkaparallelprocessingjava.dto;
 
 import java.util.ArrayList;
 
-import com.github.fnunezzz.kafkaparallelprocessingjava.classes.Book;
-
 public class ProcessBooksDto {
-    private ArrayList<Book> books;
+    private ArrayList<BookDto> books;
 
-    public ArrayList<Book> getBooks() {
+    public ArrayList<BookDto> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<Book> books) {
+    public void setBooks(ArrayList<BookDto> books) {
         this.books = books;
     } 
 }

@@ -2,86 +2,51 @@
   "type": "record",
   "name": "BookMessage",
   "namespace": "com.github.fnunezzz.kafkaparallelprocessingjava.kafka.schema",
-  "fields": [
-    {
-      "name": "title",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "author",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "authorFirstName",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "authorLastName",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "authorMiddleName",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "categories",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "volume",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "year",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "edition",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "language",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "pages",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "filesize",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "series",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "periodical",
-      "type": ["boolean", "null"],
-      "default": false
-    },
-    {
-      "name": "description",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "cover",
-      "type": ["null", "string"],
-      "default": null
-    }
-  ]
+    "fields": [{
+        "name": "authors",
+        "type": ["null", {
+            "type": "array",
+            "items": ["null", "string"]
+        }],
+        "default": null
+    }, {
+        "name": "categories",
+        "type": ["null", {
+            "type": "array",
+            "items": ["null", "string"]
+        }],
+        "default": null
+    }, {
+        "name": "cover",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "isbn",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "longDescription",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "pageCount",
+        "type": ["null", "int"],
+        "default": null
+    }, {
+        "name": "publishedDate",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "shortDescription",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "status",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "title",
+        "type": ["null", "string"],
+        "default": null
+    }]
 }
