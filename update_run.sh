@@ -1,3 +1,5 @@
+# Source: https://github.com/provectus/kafka-ui/blob/master/documentation/compose/scripts/update_run_cluster.sh
+
 # This script is required to run kafka cluster (without zookeeper)
 #!/bin/sh
 
