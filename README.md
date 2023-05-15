@@ -29,3 +29,5 @@ So... here is how it works:
 - First, one of our instances gets called to start a given task (1). It's first job is to gather the data and start doing basic transformations, and gathering info to start the hard lifting (2). This is an overall light tastk and easily done by one instance.
 - Then, everytime we have some data to actually start the difficult job we start posting it (3). We do it one message at a time. Ideally as little data we can post (a simple object, for example). The idea is to produce a lot of small messages so we can start a lot of these process in parallel.
 - After that, our instances start reading theses messages (4) and start processing each and every message. In case one of our instances dies that message is then read by another instances and so on and so forth.
+
+Now... this is a really small dataset and this setup is completely overkill but it shows how it can scale in gigantic datasets where time might be a constraint.
